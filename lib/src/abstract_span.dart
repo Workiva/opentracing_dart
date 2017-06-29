@@ -36,7 +36,7 @@ abstract class Span {
 
   /// Each span has a UTC timestamp describing when it started.
   DateTime get startTime;
-  DateTime set startTime(DateTime startTime);
+  void set startTime(DateTime startTime);
 
   /// A Span may reference zero or more Spans that are causally related.
   /// OpenTracing presently defines two types of references: ChildOf and
