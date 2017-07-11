@@ -1,8 +1,8 @@
 project: dart
 language: dart
 
-# Dart 1.21.1, content_shell, lcov and sassc:
-runner_image: drydock-prod.workiva.net/workiva/smithy-runner-dart:119662
+# Dart 1.23.0, content_shell, lcov and sassc:
+runner_image: drydock-prod.workiva.net/workiva/smithy-runner-generator:153818
 
 script:
   - pub get
