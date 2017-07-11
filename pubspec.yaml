@@ -5,7 +5,7 @@ author: The OpenTracing Authors <https://groups.google.com/forum/#!forum/distrib
 homepage: http://opentracing.io/
 
 environment:
-  sdk: ^1.23.0
+  sdk: ">=1.23.0 <2.0.0"
 
 dev_dependencies:
   coverage: ^0.7.3
