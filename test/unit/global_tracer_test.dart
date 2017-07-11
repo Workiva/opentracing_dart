@@ -16,7 +16,7 @@ import 'dart:async';
 
 import 'package:test/test.dart';
 
-import 'package:opentracing/opentracing_dart.dart';
+import 'package:opentracing/opentracing.dart';
 import 'package:opentracing/src/noop_span.dart';
 import 'package:opentracing/src/noop_span_context.dart';
 import 'package:opentracing/src/noop_tracer.dart';

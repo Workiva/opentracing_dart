@@ -14,7 +14,7 @@
 
 import 'package:test/test.dart';
 import 'package:opentracing/src/constants.dart' as constants;
-import 'package:opentracing/opentracing_dart.dart';
+import 'package:opentracing/opentracing.dart';
 
 void main() {
   group('reference', () {

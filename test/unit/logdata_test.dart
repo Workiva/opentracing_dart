@@ -13,7 +13,7 @@
 // limitations under the License.
 
 import 'package:test/test.dart';
-import 'package:opentracing/opentracing_dart.dart';
+import 'package:opentracing/opentracing.dart';
 
 void main() {
   group('logdata', () {

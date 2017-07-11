@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import 'package:opentracing/opentracing_dart.dart';
+import 'package:opentracing/opentracing.dart';
 import 'dart:async';
 
 /// [Span] represents a logical unit of work as part of a broader [Trace]. Examples

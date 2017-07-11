@@ -14,7 +14,7 @@
 
 import 'dart:typed_data';
 import 'package:test/test.dart';
-import 'package:opentracing/opentracing_dart.dart';
+import 'package:opentracing/opentracing.dart';
 
 void main() {
   group('binary carrier: verify', () {
