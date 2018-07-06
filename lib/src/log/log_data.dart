@@ -26,7 +26,6 @@ class LogData {
     String message,
     StackTrace stackTrace,
     Map<String, dynamic> fields: const {},
-    this.payload,
   })
       : this.timestamp = timestamp ?? new DateTime.now() {
     final logFields = {}..addAll(fields);
@@ -80,18 +79,4 @@ class LogData {
   StackTrace get stackTrace => fields[LogField.stack];
 
   dynamic get errorObject => fields[LogField.errorObject];
-
-  /// payload is a free-form potentially structured object which [Tracer]
-  /// implementations may retain and record all, none, or part of.
-  ///
-  /// If included, `payload` should be restricted to data derived from the
-  /// instrumented application; in particular, it should not be used to pass
-  /// semantic flags to a log() implementation.
-  ///
-  /// For example, an RPC system could log the wire contents in both
-  /// directions, or a SQL library could log the query (with or without
-  /// parameter bindings); tracing implementations may truncate or otherwise
-  /// record only a snippet of these payloads (or may strip out PII, etc,
-  /// etc).
-  final dynamic payload;
 }

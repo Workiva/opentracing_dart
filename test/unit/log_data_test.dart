@@ -29,7 +29,7 @@ void main() {
     final String customFieldData = 'customFieldData';
 
     test('can be properly constructed', () {
-      final LogData spanLog = new LogData(
+      final LogData logData = new LogData(
         event,
         errorKind: errorKind,
         errorObject: error,
@@ -37,18 +37,17 @@ void main() {
           customField: customFieldData,
         },
         message: message,
-        payload: payload,
         stackTrace: stackTrace,
         timestamp: timestamp,
       );
 
-      expect(spanLog.timestamp, timestamp);
-      expect(spanLog.event, event);
-      expect(spanLog.errorKind, errorKind);
-      expect(spanLog.errorObject, error);
-      expect(spanLog.fields[customField], customFieldData);
-      expect(spanLog.message, message);
-      expect(spanLog.stackTrace, stackTrace);
+      expect(logData.timestamp, timestamp);
+      expect(logData.event, event);
+      expect(logData.errorKind, errorKind);
+      expect(logData.errorObject, error);
+      expect(logData.fields[customField], customFieldData);
+      expect(logData.message, message);
+      expect(logData.stackTrace, stackTrace);
     });
   });
 }
