@@ -12,7 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import 'dart:async';
 import 'dart:html';
 import 'json_serializable_span.dart';
 import 'package:opentracing/opentracing.dart';
@@ -33,19 +32,23 @@ void runTestCase(String url) {
   HttpRequest.getString(url).then((String result) {
     span.log(new LogData(
       'data_received',
-      message: 'Received data',
-      payload: result,
+      message: 'Received a response from the server',
+      fields: {
+        'response': result,
+      },
     ));
     span.setTag(SpanTag.error, false);
   }).catchError((error, trace) {
     span.log(new LogData(
       'request_error',
+      message: 'Received an error from the server',
       errorObject: error,
     ));
     span.setTag(SpanTag.error, true);
   }).whenComplete(() {
     span.log(new LogData(
       'request_end',
+      message: 'Test case completed',
     ));
     span.finish();
   });
@@ -55,7 +58,7 @@ void runSuccessCase() => runTestCase('http://httpstat.us/200');
 
 void runFailureCase() => runTestCase('http://httpstat.us/500');
 
-Future main() async {
+void main() {
   runSuccessCase();
   runFailureCase();
 }
