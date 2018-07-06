@@ -12,12 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import 'package:opentracing/opentracing.dart';
 import 'dart:async';
 
-/// [Span] represents a logical unit of work as part of a broader [Trace]. Examples
+import 'package:opentracing/opentracing.dart';
+
+/// [Span] represents a logical unit of work as part of a broader Trace. Examples
 /// of [Span] might include remote procedure calls or a in-process function calls
-/// to sub-components. A [Trace] has a single, top-level "root" [Span] that in turn
+/// to sub-components. A Trace has a single, top-level "root" [Span] that in turn
 /// may have zero or more child [Span]s, which in turn may have children.
 abstract class Span {
   /// Each span will have an associated SpanContext.

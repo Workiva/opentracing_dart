@@ -32,9 +32,8 @@ abstract class AbstractTracer {
   /// Many Spans doing concurrent (perhaps distributed) work may all
   /// individually be the ChildOf a single parent Span that merges the results
   /// for all children that return within a deadline.
-  Reference childOf(SpanContext spanContext) {
-    return new Reference.childOf(spanContext);
-  }
+  Reference childOf(SpanContext spanContext) =>
+      new Reference.childOf(spanContext);
 
   /// Returns a SpanContext instance extracted from `carrier` in the given
   /// `format`.
@@ -65,9 +64,8 @@ abstract class AbstractTracer {
   /// Some parent Spans do not depend in any way on the result of their child
   /// Spans. In these cases, we say merely that the child Span “FollowsFrom” the
   /// parent Span in a causal sense.
-  Reference followsFrom(SpanContext spanContext) {
-    return new Reference.followsFrom(spanContext);
-  }
+  Reference followsFrom(SpanContext spanContext) =>
+      new Reference.followsFrom(spanContext);
 
   /// Injects the given SpanContext instance for cross-process propagation
   /// within `carrier`. The expected type of `carrier` depends on the value of

@@ -22,7 +22,6 @@ void main() {
     final Error error = new Error();
     final String errorKind = 'testKind';
     final String message = 'message';
-    final String payload = '0';
     final StackTrace stackTrace = StackTrace.current;
 
     final String customField = 'customField';

@@ -13,9 +13,10 @@
 // limitations under the License.
 
 import 'dart:html';
-import 'json_serializable_span.dart';
 import 'package:opentracing/opentracing.dart';
 import 'package:opentracing/src/global_tracer.dart';
+
+import 'json_serializable_span.dart';
 
 /// Global Tracer
 AbstractTracer tracer = globalTracer();
@@ -30,27 +31,30 @@ void runTestCase(String url) {
   span.whenFinished.then(onFinished);
 
   HttpRequest.getString(url).then((String result) {
-    span.log(new LogData(
-      'data_received',
-      message: 'Received a response from the server',
-      fields: {
-        'response': result,
-      },
-    ));
-    span.setTag(SpanTag.error, false);
+    span
+      ..log(new LogData(
+        'data_received',
+        message: 'Received a response from the server',
+        fields: {
+          'response': result,
+        },
+      ))
+      ..setTag(SpanTag.error, false);
   }).catchError((error, trace) {
-    span.log(new LogData(
-      'request_error',
-      message: 'Received an error from the server',
-      errorObject: error,
-    ));
-    span.setTag(SpanTag.error, true);
+    span
+      ..log(new LogData(
+        'request_error',
+        message: 'Received an error from the server',
+        errorObject: error,
+      ))
+      ..setTag(SpanTag.error, true);
   }).whenComplete(() {
-    span.log(new LogData(
-      'request_end',
-      message: 'Test case completed',
-    ));
-    span.finish();
+    span
+      ..log(new LogData(
+        'request_end',
+        message: 'Test case completed',
+      ))
+      ..finish();
   });
 }
 

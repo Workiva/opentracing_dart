@@ -20,9 +20,7 @@ class NoopSpanContext extends SpanContext {
   void forEachBaggageItem(Function baggageHandler) {}
 
   @override
-  dynamic getBaggageItem(dynamic key) {
-    return null;
-  }
+  dynamic getBaggageItem(dynamic key) => null;
 
   @override
   void setBaggageItem(dynamic key, dynamic value) {}

@@ -14,29 +14,23 @@
 
 import 'dart:async';
 
-import 'noop_span.dart';
-import 'reference.dart';
-import 'span_context.dart';
-import 'abstract_tracer.dart';
+import 'package:opentracing/opentracing.dart';
 
 /// The No-op implementation of [AbstractTracer] in which all operations are no-op
 class NoopTracer extends AbstractTracer {
   @override
   NoopSpan startSpan(String operationName,
-      {SpanContext childOf,
-      List<Reference> references,
-      Map<String, dynamic> tags,
-      DateTime startTime}) {
-    return new NoopSpan();
-  }
+          {SpanContext childOf,
+          List<Reference> references,
+          Map<String, dynamic> tags,
+          DateTime startTime}) =>
+      new NoopSpan();
 
   @override
   void inject(SpanContext spanContext, String format, dynamic carrier) {}
 
   @override
-  SpanContext extract(String format, dynamic carrier) {
-    return null;
-  }
+  SpanContext extract(String format, dynamic carrier) => null;
 
   @override
   Future<dynamic> flush() async {}

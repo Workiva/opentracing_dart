@@ -12,13 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-/// Here we define standard names for tags that can be added to [Span]s by the
+/// Here we define standard names for tags that can be added to `Span`s by the
 /// instrumentation code. The actual tracing systems are not required to
-/// retain these as tags in the stored [Span]s if they have other means of
+/// retain these as tags in the stored `Span`s if they have other means of
 /// representing the same data. For example, the spanKind='server' can be
 /// inferred from a Zipkin span by the presence of ss/sr annotations.
 abstract class SpanTag {
-  /// Low-cardinality identifier of the module, library, or package that is generating a [Span].
+  /// Low-cardinality identifier of the module, library, or package that is generating a `Span`.
   static final String component = 'component';
 
   /// true if and only if the application considers the operation represented
@@ -32,7 +32,7 @@ abstract class SpanTag {
   /// Identifies the HTTP method of the request. Both upper/lower case values are allowed.
   static final String httpMethod = 'http.method';
 
-  /// Identifies the numeric HTTP status code (200, 404, etc) of the HTTP response. Expected [int].
+  /// Identifies the numeric HTTP status code (200, 404, etc) of the HTTP response. Expected `int`.
   static final String httpStatusCode = 'http.status_code';
 
   /// Identifies the host name of the peer.
@@ -50,15 +50,15 @@ abstract class SpanTag {
   /// Identifies the service name of the peer.
   static final String peerService = 'peer.service';
 
-  /// Determines the priority of sampling this [Span]. Expected [int].
+  /// Determines the priority of sampling this `Span`. Expected [int].
   static final String samplingPriority = 'sampling.priority';
 
-  /// Hints at relationship between [Span]s, e.g. client/server.
+  /// Hints at relationship between `Span`s, e.g. client/server.
   static final String spanKind = 'span.kind';
 
-  /// Marks a [Span] representing the client-side of an RPC or other remote call.
+  /// Marks a `Span` representing the client-side of an RPC or other remote call.
   static final String spanKindRpcClient = 'client';
 
-  /// Marks a [Span] representing the server-side of an RPC or other remote call.
+  /// Marks a `Span` representing the server-side of an RPC or other remote call.
   static final String spanKindRpcServer = 'server';
 }

@@ -14,7 +14,7 @@
 
 import 'log_fields.dart';
 
-/// LogData is data associated with a [Span]. Every LogData instance should
+/// LogData is data associated with a `Span`. Every LogData instance should
 /// specify at least one of Event and/or Payload.
 class LogData {
   ///Returns a LogData instance.
@@ -62,13 +62,13 @@ class LogData {
   final DateTime timestamp;
 
   ///   event (if non-empty) should be the stable name of some notable moment in
-  ///   the lifetime of a [Span]. For instance, a [Span] representing a browser page
+  ///   the lifetime of a `Span`. For instance, a `Span` representing a browser page
   ///   load might add an Event for each of the Performance.timing moments
   ///   here: https://developer.mozilla.org/en-US/docs/Web/API/PerformanceTiming
   ///
   ///   While it is not a formal requirement, Event strings will be most useful
   ///   if they are *not* unique; rather, tracing systems should be able to use
-  ///   them to understand how two similar [Span]s relate from an internal timing
+  ///   them to understand how two similar `Span`s relate from an internal timing
   ///   perspective.
   String get event => fields[LogField.event];
 
