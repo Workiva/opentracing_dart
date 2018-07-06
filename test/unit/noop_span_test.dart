@@ -12,11 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import 'package:opentracing/src/abstract_span.dart';
+import 'package:opentracing/opentracing.dart';
 import 'package:test/test.dart';
-
-import 'package:opentracing/src/noop_span.dart';
-import 'package:opentracing/src/noop_span_context.dart';
 
 void main() {
   group('noopSpan: verify', () {
@@ -35,7 +32,7 @@ void main() {
       expect(span.tags, isNull);
       span.finish();
       expect(span.endTime, isNull);
-      span.log('event');
+      span.log(new LogData('event'));
       expect(span.logData, isNull);
       span.setTag('testKey', 'testValue');
       expect(span.tags, isNull);

@@ -97,7 +97,7 @@ abstract class Span {
   Future<Span> get whenFinished;
 
   /// Explicitly creates a log record associated with the [Span].
-  void log(String event, {Object payload, DateTime timestamp});
+  void log(LogData log);
 
   /// Tags this span with the current key-value pair.
   void setTag(String key, dynamic value);

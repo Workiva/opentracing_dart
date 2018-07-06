@@ -26,13 +26,16 @@
 
 library opentracing_dart;
 
+export 'src/abstract_span.dart';
+export 'src/abstract_tracer.dart';
 export 'src/binary_carrier.dart';
 export 'src/constants.dart';
-export 'src/ext/tags.dart';
-export 'src/reference.dart';
-export 'src/abstract_span.dart';
-export 'src/span_context.dart';
-export 'src/abstract_tracer.dart';
-export 'src/logdata.dart';
 export 'src/errors.dart';
+export 'src/ext/tags.dart';
 export 'src/global_tracer.dart';
+export 'src/log/log_data.dart';
+export 'src/log/log_fields.dart';
+export 'src/noop_span.dart';
+export 'src/noop_span_context.dart';
+export 'src/reference.dart';
+export 'src/span_context.dart';

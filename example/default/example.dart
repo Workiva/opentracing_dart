@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import 'dart:async';
 import 'dart:html';
 import 'json_serializable_span.dart';
 import 'package:opentracing/opentracing.dart';
@@ -25,37 +26,36 @@ void onFinished(Span span) {
   print(new JsonSerializableSpan(span).toJson());
 }
 
-/// Runs the success case
-void runSuccessCase() {
+void runTestCase(String url) {
   Span span = tracer.startSpan('http_request');
   span.whenFinished.then(onFinished);
 
-  HttpRequest.getString('http://httpstat.us/200').then((String result) {
-    span.log('data_received', payload: result);
-  }).catchError((dynamic error) {
-    span.log('request_error', payload: error);
+  HttpRequest.getString(url).then((String result) {
+    span.log(new LogData(
+      'data_received',
+      message: 'Received data',
+      payload: result,
+    ));
+    span.setTag(SpanTag.error, false);
+  }).catchError((error, trace) {
+    span.log(new LogData(
+      'request_error',
+      errorObject: error,
+    ));
+    span.setTag(SpanTag.error, true);
   }).whenComplete(() {
-    span.log('request_end');
+    span.log(new LogData(
+      'request_end',
+    ));
     span.finish();
   });
 }
 
-/// Runs the failure case
-void runFailureCase() {
-  Span span = tracer.startSpan('http_request');
-  span.whenFinished.then(onFinished);
+void runSuccessCase() => runTestCase('http://httpstat.us/200');
 
-  HttpRequest.getString('http://httpstat.us/500').then((String result) {
-    span.log('data_received', payload: result);
-  }).catchError((error) {
-    span.log('request_error', payload: error);
-  }).whenComplete(() {
-    span.log('request_end');
-    span.finish();
-  });
-}
+void runFailureCase() => runTestCase('http://httpstat.us/500');
 
-main() async {
+Future main() async {
   runSuccessCase();
   runFailureCase();
 }
