@@ -24,15 +24,7 @@
 /// or implied. See the License for the specific language governing permissions and limitations under
 /// the License.
 
+@Deprecated('Use the `opentracing` package instead.')
 library opentracing_dart;
 
-export 'src/binary_carrier.dart';
-export 'src/constants.dart';
-export 'src/ext/tags.dart';
-export 'src/reference.dart';
-export 'src/abstract_span.dart';
-export 'src/span_context.dart';
-export 'src/abstract_tracer.dart';
-export 'src/logdata.dart';
-export 'src/errors.dart';
-export 'src/global_tracer.dart';
+export 'package:opentracing/opentracing.dart';
