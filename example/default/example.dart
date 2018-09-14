@@ -12,10 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import 'dart:async';
 import 'dart:html';
-import 'json_serializable_span.dart';
+
 import 'package:opentracing/opentracing.dart';
 import 'package:opentracing/src/global_tracer.dart';
+
+import 'json_serializable_span.dart';
 
 /// Global Tracer
 AbstractTracer tracer = globalTracer();
@@ -55,7 +58,7 @@ void runFailureCase() {
   });
 }
 
-main() async {
+Future main() async {
   runSuccessCase();
   runFailureCase();
 }
