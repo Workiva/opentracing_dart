@@ -14,9 +14,11 @@
 
 library tool.dev;
 
+import 'dart:async';
+
 import 'package:dart_dev/dart_dev.dart' show dev, config;
 
-main(List<String> args) async {
+Future main(List<String> args) async {
   // Define the entry points for static analysis.
   config.analyze
     ..entryPoints = <String>['example', 'lib/', 'test/']
@@ -40,7 +42,7 @@ main(List<String> args) async {
 
   // Define the directories to include when running the
   // Dart formatter.
-  config.format.directories = <String>['example', 'lib/', 'test/', 'tool/'];
+  config.format.paths = <String>['example', 'lib/', 'test/', 'tool/'];
 
   // Define the location of your test suites.
   config.test

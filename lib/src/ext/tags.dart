@@ -12,53 +12,53 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-/// Here we define standard names for tags that can be added to [Span]s by the
+/// Here we define standard names for tags that can be added to `Span`s by the
 /// instrumentation code. The actual tracing systems are not required to
-/// retain these as tags in the stored [Span]s if they have other means of
+/// retain these as tags in the stored `Span`s if they have other means of
 /// representing the same data. For example, the spanKind='server' can be
 /// inferred from a Zipkin span by the presence of ss/sr annotations.
+abstract class SpanTag {
+  /// Low-cardinality identifier of the module, library, or package that is generating a `Span`.
+  static final String component = 'component';
 
-/// Hints at relationship between [Span]s, e.g. client/server.
-const String spanKind = 'span.kind';
+  /// true if and only if the application considers the operation represented
+  /// by the Span to have failed
+  static final String error = 'error';
 
-/// Marks a [Span] representing the client-side of an RPC or other remote call.
-const String spanKindRpcClient = 'client';
+  /// Identifies the URL of the request being handled in this segment of the trace,
+  /// in standard URI format. The protocol is optional.
+  static final String httpUrl = 'http.url';
 
-/// Marks a [Span] representing the server-side of an RPC or other remote call.
-const String spanKindRpcServer = 'server';
+  /// Identifies the HTTP method of the request. Both upper/lower case values are allowed.
+  static final String httpMethod = 'http.method';
 
-/// Low-cardinality identifier of the module, library, or package that is generating a [Span].
-const String component = 'component';
+  /// Identifies the numeric HTTP status code (200, 404, etc) of the HTTP response. Expected `int`.
+  static final String httpStatusCode = 'http.status_code';
 
-/// Determines the priority of sampling this [Span]. Expected [int].
-const String samplingPriority = 'sampling.priority';
+  /// Identifies the host name of the peer.
+  static final String peerHostname = 'peer.hostname';
 
-/// peer* tags can be emitted by either client-side of server-side to describe
-/// the other side/service in a peer-to-peer communications, like an RPC call.
+  /// Identifies IP v4 host address of the peer. Expected [int].
+  static final String peerHostIpV4 = 'peer.ipv4';
 
-/// Identifies the service name of the peer.
-const String peerService = 'peer.service';
+  /// Identifies the IP v6 host address of the peer.
+  static final String peerHostIpV6 = 'peer.ipv6';
 
-/// Identifies the host name of the peer.
-const String peerHostname = 'peer.hostname';
+  /// Identifies the port number of the peer. Expect [int].
+  static final String peerPort = 'peer.port';
 
-/// Identifies IP v4 host address of the peer. Expected [int].
-const String peerHostIpV4 = 'peer.ipv4';
+  /// Identifies the service name of the peer.
+  static final String peerService = 'peer.service';
 
-/// Identifies the IP v6 host address of the peer.
-const String peerHostIpV6 = 'peer.ipv6';
+  /// Determines the priority of sampling this `Span`. Expected [int].
+  static final String samplingPriority = 'sampling.priority';
 
-/// Identifies the port number of the peer. Expect [int].
-const String peerPort = 'peer.port';
+  /// Hints at relationship between `Span`s, e.g. client/server.
+  static final String spanKind = 'span.kind';
 
-/// HTTP tags
+  /// Marks a `Span` representing the client-side of an RPC or other remote call.
+  static final String spanKindRpcClient = 'client';
 
-/// Identifies the URL of the request being handled in this segment of the trace,
-/// in standard URI format. The protocol is optional.
-const String httpUrl = 'http.url';
-
-/// Identifies the HTTP method of the request. Both upper/lower case values are allowed.
-const String httpMethod = 'http.method';
-
-/// Identifies the numeric HTTP status code (200, 404, etc) of the HTTP response. Expected [int].
-const String httpStatusCode = 'http.status_code';
+  /// Marks a `Span` representing the server-side of an RPC or other remote call.
+  static final String spanKindRpcServer = 'server';
+}

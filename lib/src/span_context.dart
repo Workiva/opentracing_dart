@@ -31,7 +31,7 @@ class SpanContext {
   bool sampled;
 
   /// A SpanContext may optionally include baggage.
-  Map<dynamic, dynamic> _baggage = new Map<dynamic, dynamic>();
+  final Map _baggage = {};
 
   /// Returns a new SpanContext.
   SpanContext({this.traceId, this.spanId, this.sampled: false});
@@ -47,8 +47,8 @@ class SpanContext {
   /// as soon as the item is found to stop further iterations.
   void forEachBaggageItem(Function baggageHandler) {
     bool continueIterations = true;
-    for (dynamic key in this._baggage.keys) {
-      continueIterations = baggageHandler(this._baggage[key]);
+    for (dynamic key in _baggage.keys) {
+      continueIterations = baggageHandler(_baggage[key]);
       if (!continueIterations) {
         return;
       }
@@ -56,9 +56,7 @@ class SpanContext {
   }
 
   /// Returns the value for a baggage item given its key.
-  dynamic getBaggageItem(dynamic key) {
-    return _baggage[key];
-  }
+  dynamic getBaggageItem(dynamic key) => _baggage[key];
 
   /// Baggage is a set of key:value pairs stored in a Span (and its SpanContext)
   /// and propagated in-band to all child Spans and their SpanContexts: in this

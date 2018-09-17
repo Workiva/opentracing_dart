@@ -18,7 +18,7 @@ import 'span_context.dart';
 /// Pairs a reference type constant (e.g., [referenceChildOf] or [referenceFollowsFrom])
 /// with the [SpanContext] it points to.
 ///
-/// See the exported [childOf] and [followsFrom] functions in [tracer.dart]
+/// See the exported `childOf` and `followsFrom` functions in `tracer.dart`
 class Reference {
   /// The Reference type (e.g., referenceChildOf or referenceFollowsFrom).
   String referenceType;

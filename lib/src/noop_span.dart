@@ -12,12 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import 'package:opentracing/src/span_context.dart';
-import 'abstract_span.dart';
-import 'reference.dart';
-import 'noop_span_context.dart';
 import 'dart:async';
-import 'logdata.dart';
+
+import 'package:opentracing/opentracing.dart';
 
 /// The No-op implementation of a [Span] in which all operations are no-ops.
 class NoopSpan implements Span {
@@ -40,7 +37,7 @@ class NoopSpan implements Span {
   void finish({DateTime finishTime}) {}
 
   @override
-  void log(String event, {DateTime timestamp, Object payload}) {}
+  void log(LogData log) {}
 
   @override
   List<LogData> get logData => null;
@@ -61,7 +58,5 @@ class NoopSpan implements Span {
   Map<String, dynamic> get tags => null;
 
   @override
-  Future<Span> get whenFinished async {
-    return new Future<Span>.value(null);
-  }
+  Future<Span> get whenFinished => new Future<Span>.value(null);
 }

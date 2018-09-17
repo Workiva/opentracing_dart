@@ -13,9 +13,10 @@
 // limitations under the License.
 
 import 'dart:html';
-import 'json_serializable_span.dart';
 import 'package:opentracing/opentracing.dart';
 import 'package:opentracing/src/global_tracer.dart';
+
+import 'json_serializable_span.dart';
 
 /// Global Tracer
 AbstractTracer tracer = globalTracer();
@@ -25,37 +26,43 @@ void onFinished(Span span) {
   print(new JsonSerializableSpan(span).toJson());
 }
 
-/// Runs the success case
-void runSuccessCase() {
+void runTestCase(String url) {
   Span span = tracer.startSpan('http_request');
   span.whenFinished.then(onFinished);
 
-  HttpRequest.getString('http://httpstat.us/200').then((String result) {
-    span.log('data_received', payload: result);
-  }).catchError((dynamic error) {
-    span.log('request_error', payload: error);
+  HttpRequest.getString(url).then((String result) {
+    span
+      ..log(new LogData(
+        'data_received',
+        message: 'Received a response from the server',
+        fields: {
+          'response': result,
+        },
+      ))
+      ..setTag(SpanTag.error, false);
+  }).catchError((error, trace) {
+    span
+      ..log(new LogData(
+        'request_error',
+        message: 'Received an error from the server',
+        errorObject: error,
+      ))
+      ..setTag(SpanTag.error, true);
   }).whenComplete(() {
-    span.log('request_end');
-    span.finish();
+    span
+      ..log(new LogData(
+        'request_end',
+        message: 'Test case completed',
+      ))
+      ..finish();
   });
 }
 
-/// Runs the failure case
-void runFailureCase() {
-  Span span = tracer.startSpan('http_request');
-  span.whenFinished.then(onFinished);
+void runSuccessCase() => runTestCase('http://httpstat.us/200');
 
-  HttpRequest.getString('http://httpstat.us/500').then((String result) {
-    span.log('data_received', payload: result);
-  }).catchError((error) {
-    span.log('request_error', payload: error);
-  }).whenComplete(() {
-    span.log('request_end');
-    span.finish();
-  });
-}
+void runFailureCase() => runTestCase('http://httpstat.us/500');
 
-main() async {
+void main() {
   runSuccessCase();
   runFailureCase();
 }

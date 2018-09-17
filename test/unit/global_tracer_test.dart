@@ -30,7 +30,7 @@ void main() {
 
   test('Verify InitGlobalTracer changes the global tracer', () {
     AbstractTracer tracer = globalTracer();
-    expect(tracer, new isInstanceOf<NoopTracer>());
+    expect(tracer, const isInstanceOf<NoopTracer>());
 
     TestTracer testTracer = new TestTracer();
     initGlobalTracer(testTracer);
@@ -44,20 +44,17 @@ void main() {
 class TestTracer extends AbstractTracer {
   @override
   NoopSpan startSpan(String operationName,
-      {SpanContext childOf,
-      List<Reference> references,
-      Map<String, dynamic> tags,
-      DateTime startTime}) {
-    return null;
-  }
+          {SpanContext childOf,
+          List<Reference> references,
+          Map<String, dynamic> tags,
+          DateTime startTime}) =>
+      null;
 
   @override
   void inject(SpanContext spanContext, String format, dynamic carrier) {}
 
   @override
-  SpanContext extract(String format, dynamic carrier) {
-    return new NoopSpanContext();
-  }
+  SpanContext extract(String format, dynamic carrier) => new NoopSpanContext();
 
   @override
   Future<dynamic> flush({Function callback: null}) async {}

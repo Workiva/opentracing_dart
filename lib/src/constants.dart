@@ -25,30 +25,30 @@ final String opentracingVersion = '1.0';
 /// between 1 and (1<<32) inclusive.
 final int maxInt = 4294967296;
 
-/// Represents [SpanContext]s in an opaque binary carrier.
+/// Represents `SpanContext`s in an opaque binary carrier.
 ///
-/// [Tracer.inject()] will set the [BinaryFormat.buffer] field to a [List] containing
+/// [Tracer.inject()] will set the `BinaryFormat.buffer` field to a [List] containing
 /// the injected binary data.
-/// Any valid Object can be used as long as the [buffer] field of the object
+/// Any valid Object can be used as long as the `buffer` field of the object
 /// can be set.
 ///
-/// [Tracer.extract()] will look for [carrier.buffer], and that field is
+/// [Tracer.extract()] will look for `carrier.buffer`, and that field is
 /// expected to be a [List].
 const String formatBinary = 'binary';
 
-/// Represents [SpanContext]s using a Map<String, String> map as a carrier.
+/// Represents `SpanContext`s using a Map<String, String> map as a carrier.
 ///
 /// NOTE: Unlike [formatHttpHeaders], [formatTextMap] places no restrictions
 /// on the characters used in either the keys or the values of the map
 /// entries.
 ///
 /// The [formatTextMap] carrier map may contain unrelated data (e.g.,
-/// arbitrary gRPC metadata); as such, the [Tracer] implementation should use
-/// a prefix or other convention to distinguish [Tracer]-specific key:value
+/// arbitrary gRPC metadata); as such, the `Tracer` implementation should use
+/// a prefix or other convention to distinguish `Tracer`-specific key:value
 /// pairs.
 const String formatTextMap = 'text_map';
 
-/// Represents [SpanContext]s using a character-restricted Map<String, String> as a carrier.
+/// Represents `SpanContext`s using a character-restricted Map<String, String> as a carrier.
 ///
 /// Keys and values in the [formatHttpHeaders] carrier must be suitable for
 /// use as HTTP headers (without modification or further escaping). That is,
@@ -57,20 +57,20 @@ const String formatTextMap = 'text_map';
 /// URL-escaped.
 ///
 /// The [formatHttpHeaders] carrier map may contain unrelated data (e.g.,
-/// arbitrary HTTP headers); as such, the [Tracer] implementation should use a
-/// prefix or other convention to distinguish [Tracer]-specific key:value
+/// arbitrary HTTP headers); as such, the `Tracer` implementation should use a
+/// prefix or other convention to distinguish `Tracer`-specific key:value
 /// pairs.
 const String formatHttpHeaders = 'http_headers';
 
-/// A [Span] may be the "child of" a parent [Span]. In a “child of” reference,
-/// the parent [Span] depends on the child [Span] in some capacity.
+/// A `Span` may be the "child of" a parent `Span`. In a “child of” reference,
+/// the parent `Span` depends on the child `Span` in some capacity.
 ///
 /// See more about reference types at http://opentracing.io/spec/
 const String referenceChildOf = 'child_of';
 
-/// Some parent [Span]s do not depend in any way on the result of their child
-/// [Span]s. In these cases, we say merely that the child Span “follows from”
-/// the parent [Span] in a causal sense.
+/// Some parent `Span`s do not depend in any way on the result of their child
+/// `Span`s. In these cases, we say merely that the child Span “follows from”
+/// the parent `Span` in a causal sense.
 ///
 /// See more about reference types at http://opentracing.io/spec/
 const String referenceFollowsFrom = 'follows_from';

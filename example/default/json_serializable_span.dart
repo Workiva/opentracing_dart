@@ -31,9 +31,7 @@ class JsonSerializableSpan {
 
   JsonSerializableSpan(this.span);
 
-  Map toJson() {
-    return getFields();
-  }
+  Map toJson() => getFields();
 
   Map getFields() {
     Map<String, dynamic> fieldMap = {};
