@@ -14,7 +14,7 @@
 
 import 'package:test/test.dart';
 
-import 'package:opentracing/src/noop_tracer.dart';
+import 'package:opentracing/noop_tracer.dart';
 import 'package:opentracing/opentracing.dart';
 
 void main() {

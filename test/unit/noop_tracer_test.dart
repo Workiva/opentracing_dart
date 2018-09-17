@@ -13,9 +13,7 @@
 // limitations under the License.
 
 import 'package:test/test.dart';
-import 'package:opentracing/src/noop_span_context.dart';
-import 'package:opentracing/src/noop_span.dart';
-import 'package:opentracing/src/noop_tracer.dart';
+import 'package:opentracing/noop_tracer.dart';
 
 void main() {
   test('Verify startSpan returns NoopSpan', () {
