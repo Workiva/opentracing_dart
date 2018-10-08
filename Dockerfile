@@ -15,7 +15,7 @@ ADD . /build/
 RUN pub get && \
     dartfmt --set-exit-if-changed -n lib test example && \
     dartanalyzer lib test example && \
-    pub run build_runner test -- -p vm -p chrome
+    pub run test -- -p vm -p chrome
 
 ARG BUILD_ARTIFACTS_BUILD=/build/pubspec.lock
 
