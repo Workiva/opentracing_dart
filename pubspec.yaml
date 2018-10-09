@@ -5,14 +5,12 @@ author: The OpenTracing Authors <https://groups.google.com/forum/#!forum/distrib
 homepage: http://opentracing.io/
 
 environment:
-  sdk: ">=1.23.0 <2.0.0"
+  sdk: '>=1.24.3<3.0.0'
 
 dev_dependencies:
-  coverage: ^0.7.3
-  dart_dev: ^1.7.7
-  dartdoc: ^0.9.0
-  dart_style: ^0.2.4
-  github: ^3.0.0
+  build_runner: ">=0.6.0 <1.0.0"
+  build_test: ">=0.9.0 <1.0.0"
+  build_web_compilers: ">=0.2.0 <1.0.0"
+  coverage: ">=0.10.0 <0.13.0"
   json_schema: ^1.0.3
-  test: ^0.12.0
-  w_transport: ^3.0.0
+  test: ">=0.12.30 <2.0.0"
