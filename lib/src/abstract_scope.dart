@@ -8,7 +8,7 @@ import 'package:opentracing/opentracing.dart';
 /// instance, a [Span] representing the client side of an RPC will be unfinished
 /// but blocked on IO while the RPC is still outstanding. A [Scope] defines when
 /// a given [Span] is scheduled and on the path.
-abstract class Scope{
+abstract class Scope {
   /// Mark the end of the active period for the current thread and [Scope],
   /// updating the [ScopeManager].active() in the process.
   ///

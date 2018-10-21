@@ -37,7 +37,8 @@ void runSuccessCase() {
   }).catchError((dynamic error) {
     span.log('request_error', payload: error);
   }).whenComplete(() {
-    span..log('request_end')
+    span
+      ..log('request_end')
       ..finish();
   });
 }
@@ -52,7 +53,8 @@ void runFailureCase() {
   }).catchError((dynamic error) {
     span.log('request_error', payload: error);
   }).whenComplete(() {
-    span..log('request_end')
+    span
+      ..log('request_end')
       ..finish();
   });
 }
