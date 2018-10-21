@@ -26,6 +26,8 @@
 
 library opentracing_dart;
 
+export 'src/abstract_scope.dart';
+export 'src/abstract_scope_manager.dart';
 export 'src/abstract_span.dart';
 export 'src/abstract_tracer.dart';
 export 'src/binary_carrier.dart';
