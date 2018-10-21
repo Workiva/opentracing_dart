@@ -15,6 +15,8 @@
 import 'dart:async';
 
 import 'noop_span.dart';
+import 'package:opentracing/src/abstract_scope_manager.dart';
+import 'package:opentracing/src/abstract_span.dart';
 import 'reference.dart';
 import 'span_context.dart';
 import 'abstract_tracer.dart';
@@ -40,4 +42,13 @@ class NoopTracer extends AbstractTracer {
 
   @override
   Future<dynamic> flush() async {}
+  @override
+  Span activeSpan() {
+    return new NoopSpan();
+  }
+
+  @override
+  ScopeManager scopeManager() {
+    return null;
+  }
 }
