@@ -14,29 +14,48 @@
 
 import 'package:opentracing/opentracing.dart';
 
+/// Abstract class that identifies other classes being serializable as json.
+///
+/// Implementing this class will enable a class to be serialized using the
+/// JSON.encode method.
 class JsonSerializableSpan {
+  // ignore: public_member_api_docs
   static const String versionField = 'version';
+  // ignore: public_member_api_docs
   static const String traceIdField = 'traceId';
+  // ignore: public_member_api_docs
   static const String spanIdField = 'spanId';
+  // ignore: public_member_api_docs
   static const String sampledField = 'sampled';
+  // ignore: public_member_api_docs
   static const String baggageField = 'baggage';
+  // ignore: public_member_api_docs
   static const String parentSpanIdField = 'parentSpanId';
+  // ignore: public_member_api_docs
   static const String operationField = 'operation';
+  // ignore: public_member_api_docs
   static const String startField = 'start';
+  // ignore: public_member_api_docs
   static const String durationField = 'duration';
+  // ignore: public_member_api_docs
   static const String tagsField = 'tags';
+  // ignore: public_member_api_docs
   static const String logsField = 'logs';
 
+  // ignore: public_member_api_docs
   Span span;
 
+  // ignore: public_member_api_docs
   JsonSerializableSpan(this.span);
 
-  Map toJson() {
+  // ignore: public_member_api_docs
+  Map<String, dynamic> toJson() {
     return getFields();
   }
 
-  Map getFields() {
-    Map<String, dynamic> fieldMap = {};
+  // ignore: public_member_api_docs
+  Map<String, dynamic> getFields() {
+    Map<String, dynamic> fieldMap = <String, dynamic>{};
     fieldMap[versionField] = '';
     fieldMap[traceIdField] = span?.context?.traceId;
     fieldMap[spanIdField] = span?.context?.spanId;
