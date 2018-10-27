@@ -48,7 +48,7 @@ class NoopTracer extends AbstractTracer {
   }
 
   @override
-  ScopeManager scopeManager() {
+  AbstractScopeManager scopeManager() {
     return null;
   }
 }
