@@ -1,9 +1,9 @@
 import 'package:opentracing/opentracing.dart';
 
-/// The [AbstractScopeManager] abstracts both the activation of [Span] instances via
-/// [AbstractScopeManager].activate(Span, boolean)} and access to an active
-/// [Span]/[Scope] via [AbstractScopeManager].active.
-abstract class AbstractScopeManager {
+/// The [ScopeManager] abstracts both the activation of [Span] instances via
+/// [ScopeManager].activate(Span, boolean)} and access to an active
+/// [Span]/[Scope] via [ScopeManager].active.
+abstract class ScopeManager {
   /// Make a Span instance active.
   ///
   /// [span] that should become the [active] [Span]
