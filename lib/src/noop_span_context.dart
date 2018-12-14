@@ -16,7 +16,6 @@ import 'package:opentracing/opentracing.dart';
 
 /// The no-op implementation of [SpanContext] in which all operations are No-op
 class NoopSpanContext extends SpanContext {
-
   @override
   void forEachBaggageItem(Function baggageHandler) {}
 
