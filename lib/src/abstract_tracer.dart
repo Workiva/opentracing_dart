@@ -57,7 +57,7 @@ abstract class AbstractTracer {
 
   /// Returns the current [ScopeManager], which may be a noop but may not be
   /// null.
-  ScopeManager get scopeManager();
+  ScopeManager get scopeManager;
 
   /// Returns the activer [Span]. This is a shorthand for
   /// `Tracer.scopeManager().active().span()` and null will be returned if

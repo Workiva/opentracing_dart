@@ -12,10 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import 'span_context.dart';
+import 'package:opentracing/opentracing.dart';
 
 /// The no-op implementation of [SpanContext] in which all operations are No-op
 class NoopSpanContext extends SpanContext {
+
   @override
   void forEachBaggageItem(Function baggageHandler) {}
 

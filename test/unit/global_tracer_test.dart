@@ -64,8 +64,7 @@ class TestTracer extends AbstractTracer {
     return new NoopSpan();
   }
 
+  // TODO: implement scopeManager
   @override
-  ScopeManager scopeManager() {
-    // TODO: implement scopeManager
-  }
+  ScopeManager get scopeManager => null;
 }
