@@ -26,6 +26,12 @@
 
 library opentracing_noop;
 
+export 'src/noop_scope.dart';
+export 'src/noop_scope_manager.dart';
 export 'src/noop_span.dart';
 export 'src/noop_span_context.dart';
 export 'src/noop_tracer.dart';
+export 'src/reference.dart';
+export 'src/reference.dart';
+export 'src/span_context.dart';
+export 'src/span_context.dart';

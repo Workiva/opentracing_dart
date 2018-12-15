@@ -1,3 +1,4 @@
+import 'package:opentracing/noop_tracer.dart';
 import 'package:opentracing/opentracing.dart';
 
 /// The No-op implementation of [Scope] in which all operations are no-op
