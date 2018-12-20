@@ -22,7 +22,6 @@ void main() {
       NoOpScope scope = new NoOpScope();
       expect(scope.span, new isInstanceOf<NoopSpan>());
       expect(scope.close, isNot(throwsException));
-      expect(scope.close(), isNot(new isInstanceOf<Error>()));
     });
 
     test('that NoOpScope.span is same instance', () {
