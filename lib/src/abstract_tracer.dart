@@ -59,10 +59,12 @@ abstract class AbstractTracer {
   /// null.
   ScopeManager get scopeManager;
 
+  set scopeManager(ScopeManager value);
+
   /// Returns the activer [Span]. This is a shorthand for
   /// `Tracer.scopeManager().active().span()` and null will be returned if
   /// [ScopeManager].active()} is null.
-  Span activeSpan();
+  Span get activeSpan => scopeManager?.active?.span;
 
   /// Request that any buffered or in-memory data is flushed out of the process.
   /// Optionally a callback function with the signature `function(err)` will be

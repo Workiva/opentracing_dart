@@ -50,7 +50,7 @@ void runFailureCase() {
 
   HttpRequest.getString('http://httpstat.us/500').then((String result) {
     span.log('data_received', payload: result);
-  }).catchError((dynamic error) {
+  }).catchError((error) {
     span.log('request_error', payload: error);
   }).whenComplete(() {
     span

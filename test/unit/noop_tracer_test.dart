@@ -40,9 +40,8 @@ void main() {
     expect(noopSpan.context.baggage, expectedContext.baggage);
   });
 
-  test('Verify startSpan returns NoOpSpan from NoOpScopeManager', () {
+  test('Verify startSpan returns NoopSpan from NoopScopeManager', () {
     NoopTracer noOpTracer = new NoopTracer();
-    expect(
-        identical(noOpTracer.startSpan(''), noOpTracer.activeSpan()), isTrue);
+    expect(noOpTracer.startSpan(''), same(noOpTracer.activeSpan));
   });
 }

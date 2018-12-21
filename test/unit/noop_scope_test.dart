@@ -17,17 +17,17 @@ import 'package:test/test.dart';
 import 'package:opentracing/noop_tracer.dart';
 
 void main() {
-  group('NoOpScope: verify', () {
+  group('NoopScope: verify', () {
     test('that NoOpScope is inert', () {
-      NoOpScope scope = new NoOpScope();
+      NoopScope scope = new NoopScope();
       expect(scope.span, new isInstanceOf<NoopSpan>());
       expect(scope.close, isNot(throwsException));
     });
 
-    test('that NoOpScope.span is same instance', () {
-      NoOpScope scopeOne = new NoOpScope();
-      NoOpScope scopeTwo = new NoOpScope();
-      expect(identical(scopeOne.span, scopeTwo.span), isTrue);
+    test('that NoopScope.span is same instance', () {
+      NoopScope scopeOne = new NoopScope();
+      NoopScope scopeTwo = new NoopScope();
+      expect(scopeOne.span, same(scopeTwo.span));
     });
   });
 }

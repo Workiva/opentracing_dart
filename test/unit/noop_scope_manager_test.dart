@@ -20,17 +20,19 @@ void main() {
   group('NoOpScopeManager: verify', () {
     test('that NoOpScope is inert', () {
       NoopSpan spanA = new NoopSpan();
-      NoOpScopeManager scopeManager = new NoOpScopeManager();
-      expect(scopeManager.active, new isInstanceOf<NoOpScope>());
-      scopeManager.activate(spanA);
-      expect(identical(spanA, scopeManager.active), isFalse);
-      expect(scopeManager.activate(spanA), new isInstanceOf<NoOpScope>());
+      NoopScopeManager scopeManager = new NoopScopeManager();
+      bool finishOnSpanClose = false;
+      expect(scopeManager.active, new isInstanceOf<NoopScope>());
+      scopeManager.activate(spanA, finishOnSpanClose);
+      expect(scopeManager.active.span, same(spanA));
+      expect(scopeManager.activate(spanA, finishOnSpanClose),
+          new isInstanceOf<NoopScope>());
     });
 
     test('that NoOpScope.span is same instance', () {
-      NoOpScopeManager scopeManagerOne = new NoOpScopeManager();
-      NoOpScopeManager scopeManagerTwo = new NoOpScopeManager();
-      expect(identical(scopeManagerOne.active, scopeManagerTwo.active), isTrue);
+      NoopScopeManager scopeManagerOne = new NoopScopeManager();
+      NoopScopeManager scopeManagerTwo = new NoopScopeManager();
+      expect(scopeManagerTwo.active, same(scopeManagerOne.active));
     });
   });
 }

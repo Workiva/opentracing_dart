@@ -23,7 +23,7 @@ void main() {
   test('Global tracer is a singleton', () {
     AbstractTracer tracerOne = globalTracer();
     AbstractTracer tracerTwo = globalTracer();
-    expect(identical(tracerOne, tracerTwo), isTrue);
+    expect(tracerOne, same(tracerTwo));
   });
 
   test('Verify InitGlobalTracer changes the global tracer', () {
@@ -59,12 +59,17 @@ class TestTracer extends AbstractTracer {
 
   @override
   Future<dynamic> flush({Function callback: null}) async {}
+
   @override
-  Span activeSpan() {
+  Span get activeSpan {
     return new NoopSpan();
   }
 
-  // TODO: implement scopeManager
   @override
   ScopeManager get scopeManager => null;
+
+  @override
+  set scopeManager(ScopeManager value) {
+    // no op
+  }
 }

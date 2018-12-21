@@ -19,7 +19,7 @@ import 'package:opentracing/opentracing.dart';
 
 /// The No-op implementation of [AbstractTracer] in which all operations are no-op
 class NoopTracer extends AbstractTracer {
-  static ScopeManager _scopeManager = new NoOpScopeManager();
+  static ScopeManager _scopeManager = new NoopScopeManager();
 
   @override
   NoopSpan startSpan(String operationName,
@@ -35,17 +35,17 @@ class NoopTracer extends AbstractTracer {
 
   @override
   SpanContext extract(String format, dynamic carrier) {
-    return scopeManager.active.span.context;
+    return scopeManager?.active?.span?.context;
   }
 
   @override
   Future<dynamic> flush() async {}
 
   @override
-  Span activeSpan() {
-    return scopeManager.active.span;
-  }
+  ScopeManager get scopeManager => _scopeManager;
 
   @override
-  ScopeManager get scopeManager => _scopeManager;
+  set scopeManager(ScopeManager value) {
+    _scopeManager = value;
+  }
 }
