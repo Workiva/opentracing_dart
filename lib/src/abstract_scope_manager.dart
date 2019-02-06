@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import 'package:meta/meta.dart';
 import 'package:opentracing/opentracing.dart';
 
 /// The ScopeManager abstracts both the activation of [Span] instances via
@@ -37,5 +38,7 @@ abstract class ScopeManager {
   /// Returns the [Scope], or null if none could be found.
   Scope get active;
 
+  /// DO NOT USE THIS! This is only to be used by Scope OR ScopeManager.
+  @protected
   set active(Scope value);
 }
