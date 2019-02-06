@@ -15,6 +15,7 @@
 import 'dart:async';
 
 import 'package:opentracing/opentracing.dart';
+import 'package:opentracing/src/abstract_scope_manager.dart';
 
 /// AbstractTracer provides the abstract definition for a Tracer and contains
 /// some default method implementations.
@@ -53,6 +54,17 @@ abstract class AbstractTracer {
   ///     var wireCtx = Tracer.extract(Constants.formatHttpHeaders, headersCarrier);
   ///     var serverSpan = Tracer.startSpan('...', { childOf : wireCtx });
   SpanContext extract(String format, dynamic carrier);
+
+  /// Returns the current [ScopeManager], which may be a noop but may not be
+  /// null.
+  ScopeManager get scopeManager;
+
+  set scopeManager(ScopeManager value);
+
+  /// Returns the activer [Span]. This is a shorthand for
+  /// `Tracer.scopeManager().active().span()` and null will be returned if
+  /// [ScopeManager].active()} is null.
+  Span get activeSpan => scopeManager?.active?.span;
 
   /// Request that any buffered or in-memory data is flushed out of the process.
   /// Optionally a callback function with the signature `function(err)` will be

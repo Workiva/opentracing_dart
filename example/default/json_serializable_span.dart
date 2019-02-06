@@ -11,9 +11,14 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-
+//
+// ignore_for_file: public_member_api_docs
 import 'package:opentracing/opentracing.dart';
 
+/// Abstract class that identifies other classes being serializable as json.
+///
+/// Implementing this class will enable a class to be serialized using the
+/// JSON.encode method.
 class JsonSerializableSpan {
   static const String versionField = 'version';
   static const String traceIdField = 'traceId';
@@ -31,12 +36,12 @@ class JsonSerializableSpan {
 
   JsonSerializableSpan(this.span);
 
-  Map toJson() {
+  Map<String, dynamic> toJson() {
     return getFields();
   }
 
-  Map getFields() {
-    Map<String, dynamic> fieldMap = {};
+  Map<String, dynamic> getFields() {
+    final fieldMap = <String, dynamic>{};
     fieldMap[versionField] = '';
     fieldMap[traceIdField] = span?.context?.traceId;
     fieldMap[spanIdField] = span?.context?.spanId;

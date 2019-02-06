@@ -12,18 +12,29 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import 'package:opentracing/noop_tracer.dart';
 import 'package:opentracing/opentracing.dart';
 
-/// The no-op implementation of [SpanContext] in which all operations are No-op
-class NoopSpanContext extends SpanContext {
-  @override
-  void forEachBaggageItem(Function baggageHandler) {}
+/// The No-op implementation of a [ScopeManager] in which all operations are
+/// no-ops.
+class NoopScopeManager extends ScopeManager {
+  /// Returns a new NoopScopeManager.
+  NoopScopeManager() {
+    _scope ??= new NoopScope();
+  }
+  static Scope _scope;
 
   @override
-  dynamic getBaggageItem(dynamic key) {
-    return null;
+  Scope activate(Span span, bool finishSpanOnClose) {
+    _scope = new NoopScope(span: span);
+    return active;
   }
 
   @override
-  void setBaggageItem(dynamic key, dynamic value) {}
+  Scope get active => _scope;
+
+  @override
+  set active(Scope value) {
+    _scope = value;
+  }
 }

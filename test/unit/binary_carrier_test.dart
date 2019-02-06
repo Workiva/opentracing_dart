@@ -22,7 +22,7 @@ void main() {
       ByteBuffer buffer = new Uint8List(8).buffer;
       BinaryCarrier carrier = new BinaryCarrier(buffer);
 
-      expect(identical(carrier.buffer, buffer), isTrue);
+      expect(carrier.buffer, same(buffer));
     });
 
     test('buffer can be set after construction.', () {
@@ -31,7 +31,7 @@ void main() {
       ByteBuffer newBuffer = new Uint8List(4).buffer;
       carrier.buffer = newBuffer;
 
-      expect(identical(carrier.buffer, newBuffer), isTrue);
+      expect(carrier.buffer, same(newBuffer));
     });
   });
 }

@@ -12,7 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import 'dart:async';
 import 'dart:html';
 
 import 'package:opentracing/opentracing.dart';
@@ -38,8 +37,9 @@ void runSuccessCase() {
   }).catchError((dynamic error) {
     span.log('request_error', payload: error);
   }).whenComplete(() {
-    span.log('request_end');
-    span.finish();
+    span
+      ..log('request_end')
+      ..finish();
   });
 }
 
@@ -53,12 +53,13 @@ void runFailureCase() {
   }).catchError((error) {
     span.log('request_error', payload: error);
   }).whenComplete(() {
-    span.log('request_end');
-    span.finish();
+    span
+      ..log('request_end')
+      ..finish();
   });
 }
 
-Future main() async {
+void main() {
   runSuccessCase();
   runFailureCase();
 }

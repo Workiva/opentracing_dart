@@ -16,7 +16,7 @@ import 'package:test/test.dart';
 import 'package:opentracing/noop_tracer.dart';
 
 void main() {
-  test('Verify startSpan returns NoopSpan', () {
+  test('Verify startSpan returns a NoopSpan', () {
     NoopTracer noopTracer = new NoopTracer();
     NoopSpan noopSpan = noopTracer.startSpan("opName");
     expect(noopSpan, new isInstanceOf<NoopSpan>());
@@ -38,5 +38,10 @@ void main() {
     expect(noopSpan.context.spanId, expectedContext.spanId);
     expect(noopSpan.context.sampled, expectedContext.sampled);
     expect(noopSpan.context.baggage, expectedContext.baggage);
+  });
+
+  test('Verify startSpan returns NoopSpan from NoopScopeManager', () {
+    NoopTracer noOpTracer = new NoopTracer();
+    expect(noOpTracer.startSpan(''), same(noOpTracer.activeSpan));
   });
 }
