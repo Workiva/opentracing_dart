@@ -34,7 +34,7 @@ class SpanContext {
   Map<dynamic, dynamic> _baggage = new Map<dynamic, dynamic>();
 
   /// Returns a new SpanContext.
-  SpanContext({this.traceId, this.spanId, this.sampled: false});
+  SpanContext({this.traceId, this.spanId, this.sampled = false});
 
   /// ForeachBaggageItem grants access to all baggage items stored in the
   /// SpanContext.

@@ -58,7 +58,7 @@ class TestTracer extends AbstractTracer {
   }
 
   @override
-  Future<dynamic> flush({Function callback: null}) async {}
+  Future<dynamic> flush({Function callback = null}) async {}
 
   @override
   Span get activeSpan {
