@@ -15,7 +15,7 @@
 import 'dart:math';
 
 /// random number generator
-final Random random = new Random();
+final Random random = Random();
 
 /// tracing specification version
 final String opentracingVersion = '1.0';

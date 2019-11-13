@@ -17,7 +17,7 @@ import 'package:opentracing/opentracing.dart';
 
 /// The No-op implementation of [Scope] in which all operations are no-op
 class NoopScope implements Scope {
-  static final Span _noopSpan = new NoopSpan();
+  static final Span _noopSpan = NoopSpan();
 
   /// Returns a new NoopScope, which will use the supplied Span. If no Span is
   /// supplied, a static instance of a NoopSpan will be used.

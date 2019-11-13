@@ -19,7 +19,7 @@ import 'package:opentracing/opentracing.dart';
 
 /// The No-op implementation of [AbstractTracer] in which all operations are no-op
 class NoopTracer extends AbstractTracer {
-  static ScopeManager _scopeManager = new NoopScopeManager();
+  static ScopeManager _scopeManager = NoopScopeManager();
 
   @override
   NoopSpan startSpan(String operationName,

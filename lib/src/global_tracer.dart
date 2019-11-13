@@ -19,8 +19,8 @@ import "abstract_tracer.dart";
 /// and gotten with globalTracer(). By default, the tracer in the singleton is set
 /// to the NoopTracer.
 class _GlobalTracer {
-  static _GlobalTracer globalTracer = new _GlobalTracer._internal();
-  AbstractTracer tracer = new NoopTracer();
+  static _GlobalTracer globalTracer = _GlobalTracer._internal();
+  AbstractTracer tracer = NoopTracer();
 
   factory _GlobalTracer() {
     return globalTracer;
@@ -31,12 +31,12 @@ class _GlobalTracer {
 
 /// Sets the opentracing.AbstractTracer singleton that is returned by globalTracer()
 void initGlobalTracer(AbstractTracer tracer) {
-  new _GlobalTracer().tracer = tracer;
+  _GlobalTracer().tracer = tracer;
 }
 
 /// GlobalTracer returns the global singleton `AbstractTracer` implementation.
 /// Before `initGlobalTracer()` is called, the `GlobalTracer()` is a noop
 /// implementation that drops all data handed to it.
 AbstractTracer globalTracer() {
-  return new _GlobalTracer().tracer;
+  return _GlobalTracer().tracer;
 }

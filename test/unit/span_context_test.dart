@@ -18,7 +18,7 @@ import 'package:opentracing/opentracing.dart';
 void main() {
   group('SpanContext: verify', () {
     test('that SpanContext can be constructed without any params.', () {
-      SpanContext context = new SpanContext();
+      SpanContext context = SpanContext();
       expect(context.traceId, isNull);
       expect(context.spanId, isNull);
       expect(context.sampled, isFalse);
@@ -28,7 +28,7 @@ void main() {
       int expectedTraceId = 1;
       int expectedSpanId = 2;
       bool expectedSampled = false;
-      SpanContext context = new SpanContext(
+      SpanContext context = SpanContext(
           traceId: expectedTraceId,
           spanId: expectedSpanId,
           sampled: expectedSampled);
@@ -39,7 +39,7 @@ void main() {
 
     test('that SpanContext bagage can be set, retrieved and iterated.', () {
       int expectedItemCount = 10;
-      SpanContext context = new SpanContext();
+      SpanContext context = SpanContext();
       for (int i = 0; i < expectedItemCount; i++) {
         context.setBaggageItem('item:$i', 'value:$i');
       }

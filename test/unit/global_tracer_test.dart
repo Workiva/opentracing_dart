@@ -28,9 +28,9 @@ void main() {
 
   test('Verify InitGlobalTracer changes the global tracer', () {
     AbstractTracer tracer = globalTracer();
-    expect(tracer, new isInstanceOf<NoopTracer>());
+    expect(tracer, isInstanceOf<NoopTracer>());
 
-    TestTracer testTracer = new TestTracer();
+    TestTracer testTracer = TestTracer();
     initGlobalTracer(testTracer);
 
     AbstractTracer newGlobalTracer = globalTracer();
@@ -54,7 +54,7 @@ class TestTracer extends AbstractTracer {
 
   @override
   SpanContext extract(String format, dynamic carrier) {
-    return new NoopSpanContext();
+    return NoopSpanContext();
   }
 
   @override
@@ -62,7 +62,7 @@ class TestTracer extends AbstractTracer {
 
   @override
   Span get activeSpan {
-    return new NoopSpan();
+    return NoopSpan();
   }
 
   @override

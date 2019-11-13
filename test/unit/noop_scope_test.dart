@@ -19,14 +19,14 @@ import 'package:opentracing/noop_tracer.dart';
 void main() {
   group('NoopScope: verify', () {
     test('that NoOpScope is inert', () {
-      NoopScope scope = new NoopScope();
-      expect(scope.span, new isInstanceOf<NoopSpan>());
+      NoopScope scope = NoopScope();
+      expect(scope.span, isInstanceOf<NoopSpan>());
       expect(scope.close, isNot(throwsException));
     });
 
     test('that NoopScope.span is same instance', () {
-      NoopScope scopeOne = new NoopScope();
-      NoopScope scopeTwo = new NoopScope();
+      NoopScope scopeOne = NoopScope();
+      NoopScope scopeTwo = NoopScope();
       expect(scopeOne.span, same(scopeTwo.span));
     });
   });

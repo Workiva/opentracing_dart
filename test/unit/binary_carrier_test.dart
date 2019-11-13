@@ -19,16 +19,16 @@ import 'package:opentracing/opentracing.dart';
 void main() {
   group('binary carrier: verify', () {
     test('buffer can be set in constructor.', () {
-      ByteBuffer buffer = new Uint8List(8).buffer;
-      BinaryCarrier carrier = new BinaryCarrier(buffer);
+      ByteBuffer buffer = Uint8List(8).buffer;
+      BinaryCarrier carrier = BinaryCarrier(buffer);
 
       expect(carrier.buffer, same(buffer));
     });
 
     test('buffer can be set after construction.', () {
-      ByteBuffer buffer = new Uint8List(8).buffer;
-      BinaryCarrier carrier = new BinaryCarrier(buffer);
-      ByteBuffer newBuffer = new Uint8List(4).buffer;
+      ByteBuffer buffer = Uint8List(8).buffer;
+      BinaryCarrier carrier = BinaryCarrier(buffer);
+      ByteBuffer newBuffer = Uint8List(4).buffer;
       carrier.buffer = newBuffer;
 
       expect(carrier.buffer, same(newBuffer));
