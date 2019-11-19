@@ -25,8 +25,7 @@ void main() {
       expect(scopeManager.active, isA<NoopScope>());
       scopeManager.activate(spanA, finishOnSpanClose);
       expect(scopeManager.active.span, same(spanA));
-      expect(scopeManager.activate(spanA, finishOnSpanClose),
-          isA<NoopScope>());
+      expect(scopeManager.activate(spanA, finishOnSpanClose), isA<NoopScope>());
     });
 
     test('that NoOpScope.span is same instance', () {
