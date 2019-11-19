@@ -49,7 +49,8 @@ See the [OpenTracing website](http://opentracing.io/) for general information on
 
 The project examples are run by . Run:
 ```shell
-pub serve --hostname=localhost --port=9000 example
+pub global activate webdev
+webdev serve example:8080
 ```
 
 
