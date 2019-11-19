@@ -21,7 +21,7 @@ void main() {
   group('noopSpan: verify', () {
     test('that NoopSpan is inert', () {
       NoopSpan span = NoopSpan();
-      expect(span.context, isInstanceOf<NoopSpanContext>());
+      expect(span.context, isA<NoopSpanContext>());
       expect(span.parentContext, isNull);
       expect(span.duration, isNull);
       expect(span.endTime, isNull);

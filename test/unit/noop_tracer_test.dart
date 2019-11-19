@@ -19,7 +19,7 @@ void main() {
   test('Verify startSpan returns a NoopSpan', () {
     NoopTracer noopTracer = NoopTracer();
     NoopSpan noopSpan = noopTracer.startSpan("opName");
-    expect(noopSpan, isInstanceOf<NoopSpan>());
+    expect(noopSpan, isA<NoopSpan>());
     NoopSpanContext expectedContext = NoopSpanContext();
     expect(noopSpan.context.traceId, expectedContext.traceId);
     expect(noopSpan.context.spanId, expectedContext.spanId);
@@ -31,7 +31,7 @@ void main() {
     NoopTracer noopTracer = NoopTracer();
     NoopSpan noopSpan = noopTracer.startSpan("opName");
     noopTracer.flush();
-    expect(noopSpan, isInstanceOf<NoopSpan>());
+    expect(noopSpan, isA<NoopSpan>());
     NoopSpanContext expectedContext = NoopSpanContext();
 
     expect(noopSpan.context.traceId, expectedContext.traceId);

@@ -20,7 +20,7 @@ void main() {
   group('NoopScope: verify', () {
     test('that NoOpScope is inert', () {
       NoopScope scope = NoopScope();
-      expect(scope.span, isInstanceOf<NoopSpan>());
+      expect(scope.span, isA<NoopSpan>());
       expect(scope.close, isNot(throwsException));
     });
 

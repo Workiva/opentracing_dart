@@ -28,7 +28,7 @@ void main() {
 
   test('Verify InitGlobalTracer changes the global tracer', () {
     AbstractTracer tracer = globalTracer();
-    expect(tracer, isInstanceOf<NoopTracer>());
+    expect(tracer, isA<NoopTracer>());
 
     TestTracer testTracer = TestTracer();
     initGlobalTracer(testTracer);
