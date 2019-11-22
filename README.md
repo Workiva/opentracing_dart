@@ -50,7 +50,8 @@ See the [OpenTracing website](http://opentracing.io/) for general information on
 The project examples are run by . Run:
 ```shell
 pub global activate webdev
-webdev serve example:8080
+pub global activate webdev_proxy
+webdev_proxy serve -- example:8080
 ```
 
 
