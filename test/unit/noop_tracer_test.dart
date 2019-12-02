@@ -17,10 +17,10 @@ import 'package:opentracing/noop_tracer.dart';
 
 void main() {
   test('Verify startSpan returns a NoopSpan', () {
-    NoopTracer noopTracer = new NoopTracer();
+    NoopTracer noopTracer = NoopTracer();
     NoopSpan noopSpan = noopTracer.startSpan("opName");
-    expect(noopSpan, new isInstanceOf<NoopSpan>());
-    NoopSpanContext expectedContext = new NoopSpanContext();
+    expect(noopSpan, isA<NoopSpan>());
+    NoopSpanContext expectedContext = NoopSpanContext();
     expect(noopSpan.context.traceId, expectedContext.traceId);
     expect(noopSpan.context.spanId, expectedContext.spanId);
     expect(noopSpan.context.sampled, expectedContext.sampled);
@@ -28,11 +28,11 @@ void main() {
   });
 
   test('Verify flush does nothing.', () {
-    NoopTracer noopTracer = new NoopTracer();
+    NoopTracer noopTracer = NoopTracer();
     NoopSpan noopSpan = noopTracer.startSpan("opName");
     noopTracer.flush();
-    expect(noopSpan, new isInstanceOf<NoopSpan>());
-    NoopSpanContext expectedContext = new NoopSpanContext();
+    expect(noopSpan, isA<NoopSpan>());
+    NoopSpanContext expectedContext = NoopSpanContext();
 
     expect(noopSpan.context.traceId, expectedContext.traceId);
     expect(noopSpan.context.spanId, expectedContext.spanId);
@@ -41,7 +41,7 @@ void main() {
   });
 
   test('Verify startSpan returns NoopSpan from NoopScopeManager', () {
-    NoopTracer noOpTracer = new NoopTracer();
+    NoopTracer noOpTracer = NoopTracer();
     expect(noOpTracer.startSpan(''), same(noOpTracer.activeSpan));
   });
 }

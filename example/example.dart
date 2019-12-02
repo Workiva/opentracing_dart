@@ -24,7 +24,7 @@ AbstractTracer tracer = globalTracer();
 
 /// handler for Span finishing
 void onFinished(Span span) {
-  print(new JsonSerializableSpan(span).toJson());
+  print(JsonSerializableSpan(span).toJson());
 }
 
 /// Runs the success case

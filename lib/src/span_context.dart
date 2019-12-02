@@ -31,10 +31,10 @@ class SpanContext {
   bool sampled;
 
   /// A SpanContext may optionally include baggage.
-  Map<dynamic, dynamic> _baggage = new Map<dynamic, dynamic>();
+  Map<dynamic, dynamic> _baggage = Map<dynamic, dynamic>();
 
   /// Returns a new SpanContext.
-  SpanContext({this.traceId, this.spanId, this.sampled: false});
+  SpanContext({this.traceId, this.spanId, this.sampled = false});
 
   /// ForeachBaggageItem grants access to all baggage items stored in the
   /// SpanContext.

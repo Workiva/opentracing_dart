@@ -17,12 +17,12 @@ import 'package:opentracing/opentracing.dart';
 
 void main() {
   group('logdata', () {
-    final DateTime testTimeStamp = new DateTime.now();
+    final DateTime testTimeStamp = DateTime.now();
     final String testEvent = 'testEvent';
     final String payLoad = '0';
 
     test('Verified that a LogData object can be properly constructed', () {
-      LogData logData = new LogData(testTimeStamp, testEvent, payLoad);
+      LogData logData = LogData(testTimeStamp, testEvent, payLoad);
       expect(logData.timestamp, equals(testTimeStamp));
       expect(logData.event, equals(testEvent));
       expect(logData.payload, equals(payLoad));

@@ -19,15 +19,15 @@ import 'package:opentracing/opentracing.dart';
 void main() {
   group('reference', () {
     test('Verified that childOf reference has the proper type', () {
-      SpanContext context = new SpanContext();
-      Reference reference = new Reference.childOf(context);
+      SpanContext context = SpanContext();
+      Reference reference = Reference.childOf(context);
       expect(reference.referenceType, equals(constants.referenceChildOf));
       expect(reference.referencedContext, equals(context));
     });
 
     test('Verified that followsFrom reference has the proper type', () {
-      SpanContext context = new SpanContext();
-      Reference reference = new Reference.followsFrom(context);
+      SpanContext context = SpanContext();
+      Reference reference = Reference.followsFrom(context);
       expect(reference.referenceType, equals(constants.referenceFollowsFrom));
       expect(reference.referencedContext, equals(context));
     });

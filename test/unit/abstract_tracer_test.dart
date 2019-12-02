@@ -20,14 +20,14 @@ import 'package:opentracing/opentracing.dart';
 void main() {
   group('abstract carrier: verify', () {
     test('childOf returns proper Reference.', () {
-      NoopTracer tracer = new NoopTracer();
-      Reference childOf = tracer.childOf(new SpanContext());
+      NoopTracer tracer = NoopTracer();
+      Reference childOf = tracer.childOf(SpanContext());
       expect(childOf.referenceType, equals(referenceChildOf));
     });
 
     test('followsFrom returns proper Reference.', () {
-      NoopTracer tracer = new NoopTracer();
-      Reference followsFrom = tracer.followsFrom(new SpanContext());
+      NoopTracer tracer = NoopTracer();
+      Reference followsFrom = tracer.followsFrom(SpanContext());
       expect(followsFrom.referenceType, equals(referenceFollowsFrom));
     });
   });

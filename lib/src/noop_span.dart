@@ -19,7 +19,7 @@ import 'package:opentracing/opentracing.dart';
 
 /// The No-op implementation of a [Span] in which all operations are no-ops.
 class NoopSpan implements Span {
-  static NoopSpanContext _noopSpanContext = new NoopSpanContext();
+  static NoopSpanContext _noopSpanContext = NoopSpanContext();
 
   @override
   SpanContext context = _noopSpanContext;
@@ -62,7 +62,7 @@ class NoopSpan implements Span {
 
   @override
   Future<Span> get whenFinished async {
-    return new Future<Span>.value(null);
+    return Future<Span>.value(null);
   }
 
   @override

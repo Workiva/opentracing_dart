@@ -20,13 +20,13 @@ import 'package:opentracing/opentracing.dart';
 class NoopScopeManager extends ScopeManager {
   /// Returns a new NoopScopeManager.
   NoopScopeManager() {
-    _scope ??= new NoopScope();
+    _scope ??= NoopScope();
   }
   static Scope _scope;
 
   @override
   Scope activate(Span span, bool finishSpanOnClose) {
-    _scope = new NoopScope(span: span);
+    _scope = NoopScope(span: span);
     return active;
   }
 

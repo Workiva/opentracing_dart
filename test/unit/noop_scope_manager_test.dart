@@ -19,19 +19,18 @@ import 'package:opentracing/noop_tracer.dart';
 void main() {
   group('NoOpScopeManager: verify', () {
     test('that NoOpScope is inert', () {
-      NoopSpan spanA = new NoopSpan();
-      NoopScopeManager scopeManager = new NoopScopeManager();
+      NoopSpan spanA = NoopSpan();
+      NoopScopeManager scopeManager = NoopScopeManager();
       bool finishOnSpanClose = false;
-      expect(scopeManager.active, new isInstanceOf<NoopScope>());
+      expect(scopeManager.active, isA<NoopScope>());
       scopeManager.activate(spanA, finishOnSpanClose);
       expect(scopeManager.active.span, same(spanA));
-      expect(scopeManager.activate(spanA, finishOnSpanClose),
-          new isInstanceOf<NoopScope>());
+      expect(scopeManager.activate(spanA, finishOnSpanClose), isA<NoopScope>());
     });
 
     test('that NoOpScope.span is same instance', () {
-      NoopScopeManager scopeManagerOne = new NoopScopeManager();
-      NoopScopeManager scopeManagerTwo = new NoopScopeManager();
+      NoopScopeManager scopeManagerOne = NoopScopeManager();
+      NoopScopeManager scopeManagerTwo = NoopScopeManager();
       expect(scopeManagerTwo.active, same(scopeManagerOne.active));
     });
   });

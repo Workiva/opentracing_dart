@@ -19,13 +19,13 @@ void main() {
   group('errors: verify', () {
     test('that SpanContextCorruptedError properly serializes to string.', () {
       String message = "testMessage";
-      SpanContextCorruptedError error = new SpanContextCorruptedError(message);
+      SpanContextCorruptedError error = SpanContextCorruptedError(message);
       expect(error.toString(), equals('SpanContextCorruptedError: $message'));
     });
 
     test('that InvalidCarrierFormatError properly serializes to string.', () {
       String message = "testMessage";
-      InvalidCarrierFormatError error = new InvalidCarrierFormatError(message);
+      InvalidCarrierFormatError error = InvalidCarrierFormatError(message);
       expect(error.toString(), equals('InvalidCarrierFormatError: $message'));
     });
   });
