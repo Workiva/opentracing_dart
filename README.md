@@ -47,7 +47,7 @@ Note: The underlying implementation object is shared between all inclusions of t
 
 See the [OpenTracing website](http://opentracing.io/) for general information on contributing to OpenTracing.
 
-The project examples are run by . Run:
+The project examples are run by `webdev_proxy`. Run:
 ```shell
 pub global activate webdev
 pub global activate webdev_proxy
