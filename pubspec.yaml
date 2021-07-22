@@ -1,5 +1,5 @@
 name: opentracing
-version: 1.0.1
+version: 1.0.3
 description: This library is the Open Tracing API written in Dart. It is intended for use both on the server and in the browser.
 author: The OpenTracing Authors <https://groups.google.com/forum/#!forum/distributed-tracing>
 homepage: http://opentracing.io/
