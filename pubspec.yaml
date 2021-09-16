@@ -4,7 +4,7 @@ description: This library is the Open Tracing API written in Dart. It is intende
 homepage: http://opentracing.io/
 
 environment:
-  sdk: '>=2.4.0 <3.0.0'
+  sdk: ">=2.11.0 <3.0.0"
 
 dependencies:
   meta: ^1.2.2
