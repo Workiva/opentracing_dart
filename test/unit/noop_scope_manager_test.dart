@@ -24,7 +24,7 @@ void main() {
       bool finishOnSpanClose = false;
       expect(scopeManager.active, isA<NoopScope>());
       scopeManager.activate(spanA, finishOnSpanClose);
-      expect(scopeManager.active.span, same(spanA));
+      expect(scopeManager.active!.span, same(spanA));
       expect(scopeManager.activate(spanA, finishOnSpanClose), isA<NoopScope>());
     });
 

@@ -29,7 +29,7 @@ void onFinished(Span span) {
 
 /// Runs the success case
 void runSuccessCase() {
-  Span span = tracer.startSpan('http_request');
+  Span span = tracer.startSpan('http_request')!;
   span.whenFinished.then(onFinished);
 
   HttpRequest.getString('http://httpstat.us/200').then((String result) {
@@ -45,7 +45,7 @@ void runSuccessCase() {
 
 /// Runs the failure case
 void runFailureCase() {
-  Span span = tracer.startSpan('http_request');
+  Span span = tracer.startSpan('http_request')!;
   span.whenFinished.then(onFinished);
 
   HttpRequest.getString('http://httpstat.us/500').then((String result) {

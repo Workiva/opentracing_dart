@@ -53,18 +53,18 @@ abstract class AbstractTracer {
   ///     var headersCarrier = inboundHttpReq.headers;
   ///     var wireCtx = Tracer.extract(Constants.formatHttpHeaders, headersCarrier);
   ///     var serverSpan = Tracer.startSpan('...', { childOf : wireCtx });
-  SpanContext extract(String format, dynamic carrier);
+  SpanContext? extract(String format, dynamic carrier);
 
   /// Returns the current [ScopeManager], which may be a noop but may not be
   /// null.
-  ScopeManager get scopeManager;
+  ScopeManager? get scopeManager;
 
-  set scopeManager(ScopeManager value);
+  set scopeManager(ScopeManager? value);
 
   /// Returns the activer [Span]. This is a shorthand for
   /// `Tracer.scopeManager().active().span()` and null will be returned if
   /// [ScopeManager].active()} is null.
-  Span get activeSpan => scopeManager?.active?.span;
+  Span? get activeSpan => scopeManager?.active?.span;
 
   /// Request that any buffered or in-memory data is flushed out of the process.
   /// Optionally a callback function with the signature `function(err)` will be
@@ -104,9 +104,9 @@ abstract class AbstractTracer {
   ///     Span child = Tracer.startSpan(operationName: 'Subroutine', {
   ///         references: [Tracer.childOf(parent.context())],
   ///     });
-  Span startSpan(String operationName,
-      {SpanContext childOf,
-      List<Reference> references,
-      Map<String, dynamic> tags,
-      DateTime startTime});
+  Span? startSpan(String operationName,
+      {SpanContext? childOf,
+      List<Reference>? references,
+      Map<String, dynamic>? tags,
+      DateTime? startTime});
 }

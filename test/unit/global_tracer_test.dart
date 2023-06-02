@@ -41,11 +41,11 @@ void main() {
 /// This tracer is only used for testing.
 class TestTracer extends AbstractTracer {
   @override
-  NoopSpan startSpan(String operationName,
-      {SpanContext childOf,
-      List<Reference> references,
-      Map<String, dynamic> tags,
-      DateTime startTime}) {
+  NoopSpan? startSpan(String operationName,
+      {SpanContext? childOf,
+      List<Reference>? references,
+      Map<String, dynamic>? tags,
+      DateTime? startTime}) {
     return null;
   }
 
@@ -58,7 +58,7 @@ class TestTracer extends AbstractTracer {
   }
 
   @override
-  Future<dynamic> flush({Function callback = null}) async {}
+  Future<dynamic> flush({Function? callback = null}) async {}
 
   @override
   Span get activeSpan {
@@ -66,10 +66,10 @@ class TestTracer extends AbstractTracer {
   }
 
   @override
-  ScopeManager get scopeManager => null;
+  ScopeManager? get scopeManager => null;
 
   @override
-  set scopeManager(ScopeManager value) {
+  set scopeManager(ScopeManager? value) {
     // no op
   }
 }

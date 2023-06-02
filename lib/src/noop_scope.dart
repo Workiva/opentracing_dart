@@ -21,7 +21,7 @@ class NoopScope implements Scope {
 
   /// Returns a new NoopScope, which will use the supplied Span. If no Span is
   /// supplied, a static instance of a NoopSpan will be used.
-  NoopScope({Span span}) : _span = span ?? _noopSpan;
+  NoopScope({Span? span}) : _span = span ?? _noopSpan;
   final Span _span;
 
   @override
