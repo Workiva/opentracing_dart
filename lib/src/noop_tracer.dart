@@ -35,7 +35,7 @@ class NoopTracer extends AbstractTracer {
 
   @override
   SpanContext? extract(String format, dynamic carrier) {
-    return scopeManager?.active?.span?.context;
+    return scopeManager?.active?.span.context;
   }
 
   @override
