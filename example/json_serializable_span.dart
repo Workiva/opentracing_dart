@@ -43,16 +43,16 @@ class JsonSerializableSpan {
   Map<String, dynamic> getFields() {
     final fieldMap = <String, dynamic>{};
     fieldMap[versionField] = '';
-    fieldMap[traceIdField] = span?.context?.traceId;
-    fieldMap[spanIdField] = span?.context?.spanId;
-    fieldMap[sampledField] = span?.context?.sampled ?? false;
-    fieldMap[baggageField] = span?.context?.baggage;
-    fieldMap[parentSpanIdField] = span?.parentContext?.spanId ?? '';
-    fieldMap[operationField] = span?.operationName;
-    fieldMap[startField] = span?.startTime?.toUtc()?.toIso8601String();
-    fieldMap[durationField] = span?.duration?.inMilliseconds;
-    fieldMap[tagsField] = span?.tags;
-    fieldMap[logsField] = span?.logData;
+    fieldMap[traceIdField] = span.context.traceId;
+    fieldMap[spanIdField] = span.context.spanId;
+    fieldMap[sampledField] = span.context.sampled;
+    fieldMap[baggageField] = span.context.baggage;
+    fieldMap[parentSpanIdField] = span.parentContext?.spanId ?? '';
+    fieldMap[operationField] = span.operationName;
+    fieldMap[startField] = span.startTime?.toUtc().toIso8601String();
+    fieldMap[durationField] = span.duration?.inMilliseconds;
+    fieldMap[tagsField] = span.tags;
+    fieldMap[logsField] = span.logData;
 
     return fieldMap;
   }

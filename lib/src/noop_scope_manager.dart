@@ -22,19 +22,19 @@ class NoopScopeManager extends ScopeManager {
   NoopScopeManager() {
     _scope ??= NoopScope();
   }
-  static Scope _scope;
+  static Scope? _scope;
 
   @override
-  Scope activate(Span span, bool finishSpanOnClose) {
+  Scope? activate(Span span, bool finishSpanOnClose) {
     _scope = NoopScope(span: span);
     return active;
   }
 
   @override
-  Scope get active => _scope;
+  Scope? get active => _scope;
 
   @override
-  set active(Scope value) {
+  set active(Scope? value) {
     _scope = value;
   }
 }

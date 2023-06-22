@@ -24,7 +24,7 @@ abstract class Span {
   SpanContext get context;
 
   /// Each span may or may not have an associated parentContext.
-  SpanContext get parentContext;
+  SpanContext? get parentContext;
 
   /// Each Span has an operation name, a human-readable string which concisely
   /// represents the work done by the Span (e.g., an RPC method name, a function
@@ -32,25 +32,25 @@ abstract class Span {
   /// operation name should be the most general (i.e., least specific) string
   /// that identifies a (statistically) interesting class of Span instances;
   /// more specific sub-classes should be described using Tags.
-  String get operationName;
+  String? get operationName;
 
   /// Each span has a UTC timestamp describing when it started.
-  DateTime get startTime;
+  DateTime? get startTime;
 
   /// Each span has a UTC timestamp describing when it started.
-  set startTime(DateTime value);
+  set startTime(DateTime? value);
 
   /// A Span may reference zero or more Spans that are causally related.
   /// OpenTracing presently defines two types of references: ChildOf and
   /// FollowsFrom. Both reference types specifically model direct causal
   /// relationships between a child Span and a parent Span.
-  List<Reference> get references;
+  List<Reference>? get references;
 
   /// Each span has a duration.
-  Duration get duration;
+  Duration? get duration;
 
   /// Each span has a UTC timestamp describing when it ended.
-  DateTime get endTime;
+  DateTime? get endTime;
 
   /// Every Span has zero or more Logs, each of which being a timestamped event
   /// name, optionally accompanied by a structured data payload of arbitrary
@@ -61,14 +61,14 @@ abstract class Span {
   /// While it is not a formal requirement, specific event names should apply to
   /// many Span instances: tracing systems can use these event names (and
   /// timestamps) to analyze Spans in the aggregate.
-  List<LogData> get logData;
+  List<LogData>? get logData;
 
   /// Every Span may also have zero or more key:value Tags, which do not have
   /// timestamps and simply annotate the spans.
   /// As is the case with Logs, if certain known tag key:values are used for
   /// common application scenarios, tracers can choose to pay special attention
   /// to them.
-  Map<String, dynamic> get tags;
+  Map<String, dynamic>? get tags;
 
   /// Adds a single tag to the [Span].  See `addTags()` for details.
   /// Adds the given key value pairs to the set of [Span] tags.
@@ -94,13 +94,13 @@ abstract class Span {
   /// values are supported for timestamps with sub-millisecond accuracy.
   /// If not specified, the current time (as defined by the
   /// implementation) will be used.
-  void finish({DateTime finishTime});
+  void finish({DateTime? finishTime});
 
   /// A hook for on finish event
   Future<Span> get whenFinished;
 
   /// Explicitly creates a log record associated with the [Span].
-  void log(String event, {Object payload, DateTime timestamp});
+  void log(String event, {Object? payload, DateTime? timestamp});
 
   /// Tags this span with the current key-value pair.
   void setTag(String key, dynamic value);

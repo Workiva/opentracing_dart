@@ -27,7 +27,7 @@ abstract class ScopeManager {
   /// Returns a Scope instance to control the end of the active period for the
   /// [Span]. It is a programming error to neglect calling Scope.close() on
   /// the returned instance.
-  Scope activate(Span span, bool finishSpanOnClose);
+  Scope? activate(Span span, bool finishSpanOnClose);
 
   /// Return the currently active [Scope] which can be used to access the
   /// currently active [Scope].span.
@@ -36,9 +36,9 @@ abstract class ScopeManager {
   /// [Span] at [AbstractTracer].startSpan.
   ///
   /// Returns the [Scope], or null if none could be found.
-  Scope get active;
+  Scope? get active;
 
   /// DO NOT USE THIS! This is only to be used by Scope OR ScopeManager.
   @protected
-  set active(Scope value);
+  set active(Scope? value);
 }

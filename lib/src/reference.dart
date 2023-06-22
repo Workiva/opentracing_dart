@@ -21,7 +21,7 @@ import 'span_context.dart';
 /// See the exported [childOf] and [followsFrom] functions in [tracer.dart]
 class Reference {
   /// The Reference type (e.g., referenceChildOf or referenceFollowsFrom).
-  String referenceType;
+  String? referenceType;
 
   /// The SpanContext being referred to (e.g., the parent in a referenceChildOf Reference).
   SpanContext referencedContext;

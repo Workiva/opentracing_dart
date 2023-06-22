@@ -46,10 +46,10 @@ class SpanContext {
   /// find some baggage item by pattern matching the name, it can return false
   /// as soon as the item is found to stop further iterations.
   void forEachBaggageItem(Function baggageHandler) {
-    bool continueIterations = true;
+    bool? continueIterations = true;
     for (dynamic key in this._baggage.keys) {
       continueIterations = baggageHandler(this._baggage[key]);
-      if (!continueIterations) {
+      if (!continueIterations!) {
         return;
       }
     }

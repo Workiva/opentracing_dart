@@ -25,40 +25,40 @@ class NoopSpan implements Span {
   SpanContext context = _noopSpanContext;
 
   @override
-  SpanContext parentContext;
+  SpanContext? parentContext;
 
   @override
   void addTags(Map<String, dynamic> keyValuePairs) {}
 
   @override
-  Duration get duration => null;
+  Duration? get duration => null;
 
   @override
-  DateTime get endTime => null;
+  DateTime? get endTime => null;
 
   @override
-  void finish({DateTime finishTime}) {}
+  void finish({DateTime? finishTime}) {}
 
   @override
-  void log(String event, {DateTime timestamp, Object payload}) {}
+  void log(String event, {DateTime? timestamp, Object? payload}) {}
 
   @override
-  List<LogData> get logData => null;
+  List<LogData>? get logData => null;
 
   @override
-  String get operationName => null;
+  String? get operationName => null;
 
   @override
-  List<Reference> get references => null;
+  List<Reference>? get references => null;
 
   @override
   void setTag(String key, dynamic value) {}
 
   @override
-  DateTime get startTime => null;
+  DateTime? get startTime => null;
 
   @override
-  Map<String, dynamic> get tags => null;
+  Map<String, dynamic>? get tags => null;
 
   @override
   Future<Span> get whenFinished async {
@@ -66,5 +66,5 @@ class NoopSpan implements Span {
   }
 
   @override
-  set startTime(DateTime value) {}
+  set startTime(DateTime? value) {}
 }
