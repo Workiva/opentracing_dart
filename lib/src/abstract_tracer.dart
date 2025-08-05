@@ -14,7 +14,7 @@
 
 import 'dart:async';
 
-import 'package:opentracing/opentracing.dart';
+
 import 'package:opentracing/src/abstract_scope_manager.dart';
 
 /// AbstractTracer provides the abstract definition for a Tracer and contains

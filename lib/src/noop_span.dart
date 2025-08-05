@@ -14,8 +14,8 @@
 
 import 'dart:async';
 
-import 'package:opentracing/noop_tracer.dart';
-import 'package:opentracing/opentracing.dart';
+
+
 
 /// The No-op implementation of a [Span] in which all operations are no-ops.
 class NoopSpan implements Span {

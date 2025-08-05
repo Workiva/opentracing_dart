@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import 'package:opentracing/opentracing.dart';
+
 
 /// A Scope formalizes the activation and deactivation of a [Span], usually
 /// from a CPU standpoint.
