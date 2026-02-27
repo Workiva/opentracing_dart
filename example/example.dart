@@ -23,8 +23,8 @@ import 'json_serializable_span.dart';
 AbstractTracer tracer = globalTracer();
 
 /// handler for Span finishing
-void onFinished(Span span) {
-  print(JsonSerializableSpan(span).toJson());
+void onFinished(Span? span) {
+  print(JsonSerializableSpan(span!).toJson());
 }
 
 /// Runs the success case

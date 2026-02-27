@@ -41,7 +41,7 @@ void main() {
 
       span.whenFinished.then(
           // ignore: STRONG_MODE_DOWN_CAST_COMPOSITE
-          expectAsync1((Span span) {
+          expectAsync1((Span? span) {
         expect(span, isNull);
       }, count: 1));
     });

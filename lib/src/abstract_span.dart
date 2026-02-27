@@ -97,7 +97,7 @@ abstract class Span {
   void finish({DateTime? finishTime});
 
   /// A hook for on finish event
-  Future<Span> get whenFinished;
+  Future<Span?> get whenFinished;
 
   /// Explicitly creates a log record associated with the [Span].
   void log(String event, {Object? payload, DateTime? timestamp});
