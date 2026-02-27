@@ -12,8 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
-
+import 'package:opentracing/src/abstract_scope.dart';
+import 'package:opentracing/src/abstract_scope_manager.dart';
+import 'package:opentracing/src/abstract_span.dart';
+import 'package:opentracing/src/noop_scope.dart';
 
 /// The No-op implementation of a [ScopeManager] in which all operations are
 /// no-ops.
