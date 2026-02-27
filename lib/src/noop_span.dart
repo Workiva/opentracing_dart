@@ -61,8 +61,8 @@ class NoopSpan implements Span {
   Map<String, dynamic>? get tags => null;
 
   @override
-  Future<Span> get whenFinished async {
-    return Future<Span>.value(null);
+  Future<Span?> get whenFinished async {
+    return Future<Span?>.value(null);
   }
 
   @override
