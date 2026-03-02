@@ -13,7 +13,8 @@
 // limitations under the License.
 
 import 'package:meta/meta.dart';
-import 'package:opentracing/opentracing.dart';
+import 'package:opentracing/src/abstract_scope.dart';
+import 'package:opentracing/src/abstract_span.dart';
 
 /// The ScopeManager abstracts both the activation of [Span] instances via
 /// ScopeManager.activate(Span, boolean)} and access to an active

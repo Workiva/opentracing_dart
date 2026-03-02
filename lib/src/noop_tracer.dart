@@ -14,8 +14,12 @@
 
 import 'dart:async';
 
-import 'package:opentracing/noop_tracer.dart';
-import 'package:opentracing/opentracing.dart';
+import 'package:opentracing/src/abstract_scope_manager.dart';
+import 'package:opentracing/src/abstract_tracer.dart';
+import 'package:opentracing/src/noop_scope_manager.dart';
+import 'package:opentracing/src/noop_span.dart';
+import 'package:opentracing/src/reference.dart';
+import 'package:opentracing/src/span_context.dart';
 
 /// The No-op implementation of [AbstractTracer] in which all operations are no-op
 class NoopTracer extends AbstractTracer {

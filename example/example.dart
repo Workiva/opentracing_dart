@@ -15,7 +15,6 @@
 import 'dart:html';
 
 import 'package:opentracing/opentracing.dart';
-import 'package:opentracing/src/global_tracer.dart';
 
 import 'json_serializable_span.dart';
 

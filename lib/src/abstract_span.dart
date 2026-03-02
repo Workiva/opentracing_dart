@@ -12,8 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import 'package:opentracing/opentracing.dart';
 import 'dart:async';
+
+import 'package:opentracing/src/logdata.dart';
+import 'package:opentracing/src/reference.dart';
+import 'package:opentracing/src/span_context.dart';
 
 /// [Span] represents a logical unit of work as part of a broader [Trace]. Examples
 /// of [Span] might include remote procedure calls or a in-process function calls

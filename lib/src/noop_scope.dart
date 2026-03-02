@@ -12,8 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import 'package:opentracing/noop_tracer.dart';
-import 'package:opentracing/opentracing.dart';
+import 'package:opentracing/src/abstract_scope.dart';
+import 'package:opentracing/src/abstract_span.dart';
+import 'package:opentracing/src/noop_span.dart';
 
 /// The No-op implementation of [Scope] in which all operations are no-op
 class NoopScope implements Scope {

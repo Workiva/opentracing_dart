@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import 'package:opentracing/opentracing.dart';
+import 'package:opentracing/src/span_context.dart';
 
 /// The no-op implementation of [SpanContext] in which all operations are No-op
 class NoopSpanContext extends SpanContext {
