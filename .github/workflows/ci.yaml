@@ -8,9 +8,9 @@ on:
 
 jobs:
   checks:
-    uses: Workiva/gha-dart-oss/.github/workflows/checks.yaml@v0.1.14
+    uses: Workiva/gha-dart-oss/.github/workflows/checks.yaml@v2.10.32
   build:
-    uses: Workiva/gha-dart-oss/.github/workflows/build.yaml@v0.1.14
+    uses: Workiva/gha-dart-oss/.github/workflows/build.yaml@v2.10.32
   test:
     runs-on: ubuntu-latest
     name: Unit Tests
